@@ -1,9 +1,19 @@
 # Vision
 
-Alois exists to provide a clean, portable, structured logging foundation that works:
-- in tiny tools,
-- in long-running services,
-- in tests,
-- and across diverse OS environments.
+Alois is a modular logging engine with a **small core** and **powerful sinks**.
 
-The core idea: a small engine that emits structured log events and routes them to one or more sinks.
+Core ideas:
+- **C-first** and portable: minimal dependencies, stable ABI boundaries.
+- **Structured events**: properties are first-class; text is a view.
+- **Composable**: the user can “build the logger” from parts.
+- **Fail-soft**: logging must never crash the host application.
+- **Observable**: stored logs can be read back via a viewer when a sink supports it.
+
+Alois aims for Serilog-like capability on .NET, without inheriting heavyweight assumptions:
+- predictable runtime behavior
+- optional features stay optional
+- sane defaults, but highly configurable
+
+Non-goals:
+- being a full telemetry system (tracing/metrics) on day one
+- mandating async/threads (optional later)
